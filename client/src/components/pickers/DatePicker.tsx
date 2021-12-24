@@ -7,7 +7,7 @@ import { Context }  from '../../context/SearchContext'
 import { useContext } from 'react'
 import { SearchContext } from '../../models/Contexsts'
 
-const DatePicker = () => {
+const DatePicker:React.FC<{color: string}> = ({color}) => {
 
   const {startDate, endDate, changeDate} = useContext<SearchContext> (Context)
 
@@ -22,7 +22,7 @@ const DatePicker = () => {
       <DateRangePicker
        ranges={[selectionsRange]} 
        minDate={new Date()}
-       rangeColors={['#FD5B61']}
+       rangeColors={[color]}
        onChange={changeDate}
       />
     </div>

@@ -27,8 +27,6 @@ const Home = () => {
           buttonText='Get Inspired'
         />
 
-       
-
       </div>
 
       <Footer />

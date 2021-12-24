@@ -4,8 +4,9 @@ import getCenter  from 'geolib/es/getCenter'
 
 import {ICoords, IPlace} from '../../models/models'
 import { LocationMarkerIcon } from '@heroicons/react/solid'
+import PopupCard from './PopupCard'
 
-const MapComponent:React.FC<{searchResults: IPlace[]}> = ({searchResults}) => {
+const MapComponent:React.FC<{searchResults: IPlace[], marked?: boolean}> = ({searchResults, marked}) => {
   const coords = searchResults.map(res => ({ longitude: res.long, latitude: res.lat }))
 
   const center = getCenter(coords) as ICoords
@@ -43,7 +44,7 @@ const MapComponent:React.FC<{searchResults: IPlace[]}> = ({searchResults}) => {
               closeButton={false}
               onClose={() => setSelectedLocation({} as ICoords)}
             >
-              <p>{res.title}</p>
+             <PopupCard host={res} />
             </Popup>
           )
         }

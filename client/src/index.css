@@ -20,7 +20,71 @@
     @apply px-4 py-2 border whitespace-nowrap rounded-full cursor-pointer hover:shadow-lg active:scale-95 transition-all duration-200 ease-out hover:bg-gray-100
   }
 
+  .dropItem {
+    @apply px-5 py-2 w-[240px] cursor-pointer text-gray-500  hover:bg-gray-100 transition-all duration-200
+  }
+
+  .socialButton {
+    @apply p-2 px-4 flex items-center  transition-all duration-200 w-full gap-3  text-white cursor-pointer rounded-full 
+  }
+
+  .sidebar-button {
+    @apply p-3 max-w-[190px] px-6 text-gray-800 font-semibold border border-[#212121] cursor-pointer rounded-lg whitespace-nowrap transition-all duration-200 hover:bg-gray-100
+  }
+
+  .blackButton {
+    @apply bg-black disabled:opacity-50 transition-all duration-200 cursor-pointer text-white font-bold py-2 px-4 rounded
+  }
+
+  .add_header_button {
+    @apply bg-[#212121] hover:shadow-lg active:scale-75  rounded-full p-1 text-xs text-white font-semibold cursor-pointer shadow-sm transition-all duration-300  px-4 
+  }
+
+  .counterButton {
+    @apply border border-gray-300 p-2 text-gray-700 rounded-[50%] 
+    hover:bg-gray-100 cursor-pointer transition-all duration-200 disabled:opacity-40
+  }
+  
+  .add_header_button--white {
+    @apply bg-gray-100 hover:shadow-lg active:scale-75  rounded-full p-1 text-sm  font-semibold cursor-pointer shadow-sm transition-all duration-300  px-4 
+  }
+
+  .add_content_container {
+    @apply  mt-[60px] px-3 xl:px-12 overflow-y-auto max-h-[580px]  flex flex-col gap-6
+  }
+
+  .fileplaceholder {
+    @apply flex w-full h-full relative border items-center  transition-all duration-200 hover:bg-gray-50 cursor-pointer  justify-center border-gray-400 rounded-xl hover:border-[#212121] 
+  }
+
+  .miniOverlay {
+    @apply absolute flex items-center z-10 cursor-pointer justify-center inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-all duration-200
+  }
+
   body {
     @apply scrollbar-thin
   }
+
+  .imageOverlay {
+    @apply inset-0 bg-opacity-40 opacity-0 transition-all duration-300 cursor-pointer bg-black absolute hover:opacity-100
+  }
+
+  .cardInfo {
+    @apply flex flex-col relative md:flex-row rounded-2xl shadow hover:shadow-lg first:border-t  transition-all duration-200 hover:opacity-80 cursor-pointer overflow-hidden
+  }
+  
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+.rdrDefinedRangesWrapper {
+  display: none !important;
+}
+
+
+.mapboxgl-popup-content {
+  padding: 0 !important;
 }

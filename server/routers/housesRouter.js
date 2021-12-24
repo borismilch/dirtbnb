@@ -1,10 +1,10 @@
 
-import { Router } from 'express'
-import RoomControll from '../controllers/RoomControll.js'
+const { Router } = require('express')
+const  RoomControll = require('../controllers/RoomControll.js')
 
 const router = Router()
 
-router.post('/add', RoomControll.addAllRoooms)
+router.post('/add', RoomControll.addHost)
 
 router.get('/rooms', RoomControll.getRooms)
 
@@ -12,4 +12,8 @@ router.get('/lives', RoomControll.getLives)
 
 router.get('/places', RoomControll.getPlaces)
 
-export default router
+router.get('/place/:id', RoomControll.getSingleItem)
+
+router.get('/users/:id', RoomControll.getSingelUser)
+
+module.exports = router

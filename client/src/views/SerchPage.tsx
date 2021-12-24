@@ -2,6 +2,8 @@ import React from 'react'
 import Footer from '../components/footer/Footer'
 import Header from '../components/Header'
 
+import CardSkeleton from '../components/loaders/CardSkeleton'
+
 import SearchCategories from '../components/serach/SearchCategories'
 
 import { useLocation } from 'react-router-dom'
@@ -42,28 +44,30 @@ const SearchPage = () => {
   const range = startDateString +  `-` + endDateString
 
   return (
-    <div className='flex flex-col h-screen'>
+    <div className='flex flex-col min-h-screen pb-8'>
       <div className='pt-[110px]' />
       <Header placeholder= { state.location + ' | ' + state.startDate }  />
 
       <main className='px-[12px] md:px-[30px] flex-1'>
 
-        <section>
+        <section className='pb-8'>
           <p className='text-xs truncate  '>300+ stays {range} for {state.guestCount} guests </p>
 
           <h1 className='text-3xl font-semibold mt-2 mb-4'>Stays in { state.location }</h1>
 
           <SearchCategories />
 
-          <div className='flex'>
-            <SearchList rooms={rooms} />
+          <div className='flex flex-grow'>
 
-           { loaded && <div className='hidden lg:inline-flex flex-grow min-w-[600px] ml-3'>
+            <div className='flex flex-grow'>
+            <SearchList rooms={rooms} />
+            </div>
+          
+
+           { loaded && <div className='hidden lg:inline-flex  min-w-[600px] ml-3'>
               <MapComponent searchResults={rooms} />
             </div>}
           </div>
-
-        
 
         </section>
 
