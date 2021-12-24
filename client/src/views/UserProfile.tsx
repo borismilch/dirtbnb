@@ -16,7 +16,7 @@ import { useLocation } from 'react-router-dom'
 import { createContext } from 'react'
 import { ExtendedUser } from '../models/models'
 
-export const ProfileContext = createContext<{changeChanging: (val: boolean) => void, loading:boolean, changing: boolean}>({} as any)
+export const ProfileContext = createContext<{loading:boolean, changing: boolean}>({} as any)
 
 const Profile = () => {
   const [changing, setChanging] = useState<boolean>(false)
@@ -27,11 +27,6 @@ const Profile = () => {
   const location = useLocation<{id: string}>()
 
   const { id } = location.state
-
-  const changeChanging = (val: boolean) => {
-    setChanging(false)
-
-  }
 
   const getUser = async () => {
     const dbUser = (await axios.get('http://localhost:5000/api/users/' + id)).data
@@ -56,7 +51,7 @@ const Profile = () => {
       <Header />
       <div className='h-[110px]' />
 
-      <ProfileContext.Provider value={{changeChanging, changing, loading}}>
+      <ProfileContext.Provider value={{changing, loading}}>
         <main  className='flex w-full flex-col xl:flex-row mx-auto max-w-[638px] xl:max-w-[1030px] py-6 flex-grow'>
           
           <div className=' flex-flex-col' style={{flex: '1 1 35%'}}>
